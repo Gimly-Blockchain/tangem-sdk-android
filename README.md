@@ -1,6 +1,15 @@
 [![Release](https://jitpack.io/v/Tangem/tangem-sdk-android.svg)](https://jitpack.io/#tangem/tangem-sdk-android)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/Tangem/tangem-sdk-android.svg?style=shield)](https://circleci.com/gh/Tangem/tangem-sdk-android)
+
+# Welcome to Gimly + Tangem for Odyssey
+Gimly and Tangem are excited to be offering this technology to all Odyssey teams for free. If you have not done so yet, be sure to enlist for your DevKit here: https://www.gimly.io/blog/odyssey-tangem
+
+Resources:
+* This android SDK helps you implement tangem functionalities in your android or JVM applications.
+
+* To programme your developer cards, get the Tangem Developer app from the playstore: https://play.google.com/store/apps/details?id=com.tangem.devkit&hl=en
+
 # Welcome to Tangem
 
 The Tangem card is a self-custodial hardware wallet for blockchain assets. The main functions of Tangem cards are to securely create and store a private key from a blockchain wallet and sign blockchain transactions. The Tangem card does not allow users to import/export, backup/restore private keys, thereby guaranteeing that the wallet is unique and unclonable. 
