@@ -8,6 +8,8 @@ Gimly and Tangem are excited to be offering this technology to all Odyssey teams
 Resources:
 * This android SDK helps you implement tangem functionalities in your android or JVM applications.
 
+* Technical manual explaining Tangem NFC microchips, functionalities, and settings: https://tangem.atlassian.net/wiki/spaces/TP/pages/73433089/Tangem+card+and+NFC+protocol
+
 * To programme your developer cards, get the Tangem Developer app from the playstore: https://play.google.com/store/apps/details?id=com.tangem.devkit&hl=en
 
 # Welcome to Tangem
