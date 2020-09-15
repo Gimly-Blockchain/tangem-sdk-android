@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="card_sdk_accent">#0029FF</color>
+    <color name="card_sdk_bg_color">#F2F2F7</color>
+    <color name="card_sdk_primary">#0029FF</color>
+    <color name="card_sdk_primary_dark">#0029FF</color>
+    <color name="card_sdk_ripple">#2c5ac4</color>
+    <color name="card_sdk_text_color_primary">#2C2C2E</color>
+    <color name="card_sdk_text_color_secondary">#1C1C1E</color>
+    <color name="card_sdk_text_error_color">#C4291C</color>
+    <color name="colorAccent">#027AFF</color>
+    <color name="colorPrimary">#027aff</color>
+    <color name="colorPrimaryDark">#027AFF</color>
+    <color name="progress_bar_color">#0029FF</color>
+    <color name="progress_bar_secondary_color">#3BD4D5DC</color>
+    <color name="progress_bar_state_error_color">#C4291C</color>
+    <color name="progress_bar_state_success_color">#0029FF</color>
+    <color name="progress_bar_state_warning_color">#EFC313</color>
+    <dimen name="bottom_sheet_bottom_container_height">105dp</dimen>
+    <dimen name="bottom_sheet_top_container_height">220dp</dimen>
+    <dimen name="layout_hand_padding_top">45dp</dimen>
+    <dimen name="progress_bar_state_inset">8dp</dimen>
+    <dimen name="progress_bar_state_text_size">51sp</dimen>
+    <dimen name="progress_bar_state_width">185dp</dimen>
+    <dimen name="progress_bar_stroke_width">2</dimen>
+    <dimen name="size_progress_bar_big">135dp</dimen>
+    <dimen name="tap_in_buttons_container_padding_start_end">46dp</dimen>
+    <dimen name="tap_in_buttons_container_padding_top_bottom">32dp</dimen>
+    <dimen name="tap_in_info_message_height">60dp</dimen>
+    <dimen name="tap_in_layout_hand_margin_top">64dp</dimen>
+    <string name="app_name">Tangem Sdk</string>
+    <string name="dialog_delay">Operation in process</string>
+    <string name="dialog_delay_description">Please hold the card firmly until the operation is completed…</string>
+    <string name="dialog_error">Error</string>
+    <string name="dialog_nfc_enable_text">This app is useless when NFC is disabled. Reader mode depends on it. Hit OK to go to Settings, where you can enable NFC.</string>
+    <string name="dialog_nfc_enable_title">Enable NFC?</string>
+    <string name="dialog_ready_to_scan">Ready to Scan</string>
+    <string name="dialog_scan_text">Scan card with your phone as shown above</string>
+    <string name="dialog_security_delay">Security delay</string>
+    <string name="dialog_security_delay_description">This card has enforced security delay. Please hold the card firmly until the operation is completed…</string>
+    <string name="dialog_success">Success</string>
+    <string name="error_already_created">A wallet has already been created</string>
+    <string name="error_already_personalized">This card has already been personalized</string>
+    <string name="error_busy">The CardSession is running a command. Please wait and try again</string>
+    <string name="error_cannot_be_depersonalized">This card cannot be depersonalized</string>
+    <string name="error_cannot_be_signed"> This data cannot be signed</string>
+    <string name="error_card_error">Your card is missing essential data</string>
+    <string name="error_card_is_empty">Please create a wallet to sign data</string>
+    <string name="error_data_cannot_be_written">The data cannot be written to the card</string>
+    <string name="error_data_size_too_large">Data size exceeds the max limit of 512 bytes</string>
+    <string name="error_data_size_too_large_extended">Data size exceeds the max limit of 32 Kbytes</string>
+    <string name="error_empty_hashes">There is nothing to sign here</string>
+    <string name="error_invalid_response">Invalid Response</string>
+    <string name="error_message" translatable="false">%s: %s</string>
+    <string name="error_missing_counter">The data cannot be written to the card because there is no counter</string>
+    <string name="error_missing_issuer_public_key">The issuer public key is missing</string>
+    <string name="error_no_remaining_signatures"> You cannot sign data with this wallet because the card has reached its signature limit</string>
+    <string name="error_not_activated">This card has not been activated</string>
+    <string name="error_not_personalized">This card has not been personalized</string>
+    <string name="error_operation">An error occurred during the operation</string>
+    <string name="error_pin1_cannot_be_changed">PIN1 Access Code cannot be changed</string>
+    <string name="error_pin1_cannot_be_default"> PIN1 Access Code cannot be changed to the default value. Please create a new PIN1 Access Code.</string>
+    <string name="error_pin2_cannot_be_changed">PIN2 Passcode cannot be changed</string>
+    <string name="error_purge_prohibited">This card’s configuration does not allow you to erase the wallet</string>
+    <string name="error_purged">You cannot sign data with this wallet because the card has been purged</string>
+    <string name="error_tag_lost">Tag lost.</string>
+    <string name="error_user_cancelled">The user cancelled the operation</string>
+    <string name="error_verification_failed">Data verification failed</string>
+    <string name="error_wrong_card">Wrong Card</string>
+    <string name="error_wrong_card_app">This card is configured for a different app. Please see the information on your card and download the related app.</string>
+    <string name="error_wrong_card_number">You tapped a different card. Please match the in-app Card ID to the your physical Card ID to continue this process.</string>
+    <string name="error_wrong_card_type">You tapped a wrong card. Please check if it is the correct card to use for this action.</string>
+    <string name="general_cancel">Cancel</string>
+    <string name="general_ok">OK</string>
+    <string name="header_card">Card</string>
+    <string name="header_card_any">Any card</string>
+    <string name="how_to_unknown_detected">NFC Detected. This is the placement of your NFC antenna</string>
+    <string name="how_to_unknown_empty"/>
+    <string name="how_to_unknown_move_card">To detect where your NFC antenna is located, move the card up and down until confirmation.</string>
+    <string name="how_to_unknown_nothing_happened">Nothing happened? Try removing your card from the phone and then put it back.</string>
+    <string name="how_to_unknown_tap_card">Tap your card to the back of the phone</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="lorem_ipsum_half">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="pin1">Access</string>
+    <string name="pin2">Pass</string>
+    <string name="pin3">PIN 3</string>
+    <string name="pin_change_code_title">Change %s Code</string>
+    <string name="pin_change_current_code_hint">Current %s Code</string>
+    <string name="pin_change_new_code_confirm_hint">New %s Code (Confirm)</string>
+    <string name="pin_change_new_code_hint">New %s Code</string>
+    <string name="pin_code_confirm_error">Codes do not match</string>
+    <string name="pin_enter_code">%s code</string>
+    <string name="pin_enter_code_continue">Continue</string>
+    <string name="pin_enter_error_empty">Enter code</string>
+    <string name="pin_save">Save</string>
+    <string name="pin_set_code_confirm_hint">Confirm %s Code</string>
+    <string name="pin_set_code_hint">%s Code</string>
+    <string name="pin_set_code_title">Set %s Code</string>
+    <string name="tap_in_button">Tap in</string>
+    <string name="tap_in_known_info_message">Hold your card to the phone as demonstrated when you tap in to connect.</string>
+    <string name="tap_in_known_show_how_tap_in_button">Show me how to tap in \t\t</string>
+    <string name="tap_in_unknown_how_to_tap_in_button">How to tap in \t\t</string>
+    <string name="tap_in_unknown_info_message">Watch the video to see how to tap in and\nconnect the NFC in your phone to the card.</string>
+    <style name="CardSdkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/card_sdk_primary</item>
+        <item name="colorPrimaryDark">@color/card_sdk_primary_dark</item>
+        <item name="colorAccent">@color/card_sdk_accent</item>
+        <item name="bottomSheetDialogTheme">@style/SdkBottomSheetDialogStyle</item>
+    </style>
+    <style name="SdkBottomSheetDialogStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+    <style name="SdkTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/card_sdk_text_color_primary</item>
+    </style>
+    <style name="SdkTextView.Medium">
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <declare-styleable name="SdkProgressBar">
+        <attr format="boolean" name="pb_is_indeterminate"/>
+        <attr format="integer" name="pb_progress"/>
+        <attr format="integer" name="pb_progress_max"/>
+        <attr format="integer" name="pb_sweep_step"/>
+        <attr format="integer" name="pb_sweep_start_increment"/>
+        <attr format="integer" name="pb_sweep_start_decrement"/>
+        <attr format="color" name="pb_color"/>
+        <attr format="color" name="pb_secondary_color"/>
+        <attr format="dimension" name="pb_thickness"/>
+        <attr format="dimension" name="pb_secondary_thickness"/>
+        <attr format="boolean" name="pb_round_border"/>
+    </declare-styleable>
+</resources>

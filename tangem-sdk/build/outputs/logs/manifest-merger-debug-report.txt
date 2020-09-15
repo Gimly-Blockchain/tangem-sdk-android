@@ -1,0 +1,45 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+	package
+		ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:2:5-40
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+		ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+		ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:1-6:12
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.NFC
+ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:4:5-62
+	android:name
+		ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:4:22-59
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:5:22-63
+uses-sdk
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+		ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+		ADDED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+		INJECTED from /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml

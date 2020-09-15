@@ -20,6 +20,7 @@ fun TangemSdkError.localizedDescription(): Int {
         is TangemSdkError.InsNotSupported -> R.string.error_operation
         is TangemSdkError.InvalidParams -> R.string.error_operation
         is TangemSdkError.NeedEncryption -> R.string.error_operation
+        is TangemSdkError.FileNotFound -> R.string.error_operation
         is TangemSdkError.AlreadyPersonalized -> R.string.error_already_personalized
         is TangemSdkError.CannotBeDepersonalized -> R.string.error_cannot_be_depersonalized
         is TangemSdkError.Pin1Required -> R.string.error_operation
@@ -40,7 +41,7 @@ fun TangemSdkError.localizedDescription(): Int {
         is TangemSdkError.Pin2OrCvcRequired -> R.string.error_operation
         is TangemSdkError.VerificationFailed -> R.string.error_verification_failed
         is TangemSdkError.DataSizeTooLarge -> R.string.error_data_size_too_large
-        is TangemSdkError.ExendedDataSizeTooLarge -> R.string.error_data_size_too_large_extended
+        is TangemSdkError.ExtendedDataSizeTooLarge -> R.string.error_data_size_too_large_extended
         is TangemSdkError.MissingCounter -> R.string.error_missing_counter
         is TangemSdkError.OverwritingDataIsProhibited -> R.string.error_data_cannot_be_written
         is TangemSdkError.DataCannotBeWritten -> R.string.error_data_cannot_be_written
@@ -50,7 +51,8 @@ fun TangemSdkError.localizedDescription(): Int {
         is TangemSdkError.Busy -> R.string.error_busy
         is TangemSdkError.MissingPreflightRead -> R.string.error_operation
         is TangemSdkError.WrongCardNumber -> R.string.error_wrong_card_number
-        is TangemSdkError.WrongCardType -> R.string.error_wrong_card_type
+        is TangemSdkError.WrongCardType -> R.string.error_wrong_card_app
         is TangemSdkError.CardError -> R.string.error_card_error
+        is TangemSdkError.InvalidResponse -> R.string.error_invalid_response
     }
 }

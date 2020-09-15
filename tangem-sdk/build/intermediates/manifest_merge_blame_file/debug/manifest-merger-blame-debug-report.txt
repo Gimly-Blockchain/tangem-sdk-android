@@ -1,0 +1,20 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.tangem.tangem_sdk_new"
+4    android:versionCode="1"
+5    android:versionName="0.0.1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.NFC" />
+11-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:4:5-62
+11-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:4:22-59
+12    <uses-permission android:name="android.permission.VIBRATE" />
+12-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:5:5-65
+12-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/src/main/AndroidManifest.xml:5:22-63
+13
+14</manifest>

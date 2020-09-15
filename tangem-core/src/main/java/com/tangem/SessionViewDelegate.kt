@@ -1,6 +1,6 @@
 package com.tangem
 
-import com.tangem.common.CompletionResult
+import com.tangem.commands.PinType
 
 /**
  * Allows interaction with users and shows visual elements.
@@ -12,7 +12,7 @@ interface SessionViewDelegate {
     /**
      * It is called when user is expected to scan a Tangem Card with an Android device.
      */
-    fun onNfcSessionStarted(cardId: String?, message: Message? = null)
+    fun onSessionStarted(cardId: String?, message: Message? = null)
 
     /**
      * It is called when security delay is triggered by the card.
@@ -32,24 +32,34 @@ interface SessionViewDelegate {
      */
     fun onTagLost()
 
+    fun onTagConnected()
+
+    fun onWrongCard(wrongValueType: WrongValueType)
+
     /**
      * It is called when NFC session was completed and a user can take the card away from the Android device.
      */
-    fun onNfcSessionCompleted(message: Message? = null)
+    fun onSessionStopped(message: Message? = null)
 
     /**
      * It is called when some error occur during NFC session.
      */
-    fun onError(error: TangemSdkError)
+    fun onError(error: TangemError)
 
     /**
      * It is called when a user is expected to enter pin code.
      */
-    fun onPinRequested(callback: (result: CompletionResult<String>) -> Unit)
+    fun onPinRequested(pinType: PinType, callback: (pin: String) -> Unit)
 
+    /**
+     * It is called when a user wants to change pin code.
+     */
+    fun onPinChangeRequested(pinType: PinType, callback: (pin: String) -> Unit)
 }
 
 /**
  * Wrapper for a message that can be shown to user after a start of NFC session.
  */
 data class Message(val header: String? = null, val body: String? = null)
+
+enum class WrongValueType { CardId, CardType }

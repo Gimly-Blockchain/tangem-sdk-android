@@ -1,15 +1,14 @@
 package com.tangem.commands
 
-import com.tangem.CardSession
+import com.google.gson.annotations.SerializedName
 import com.tangem.SessionEnvironment
+import com.tangem.TangemError
 import com.tangem.TangemSdkError
-import com.tangem.common.CompletionResult
+import com.tangem.commands.common.CardDeserializer
 import com.tangem.common.apdu.CommandApdu
 import com.tangem.common.apdu.Instruction
 import com.tangem.common.apdu.ResponseApdu
-import com.tangem.common.tlv.Tlv
 import com.tangem.common.tlv.TlvBuilder
-import com.tangem.common.tlv.TlvDecoder
 import com.tangem.common.tlv.TlvTag
 import java.util.*
 
@@ -67,7 +66,9 @@ class SigningMethodMaskBuilder() {
  * Elliptic curve used for wallet key operations.
  */
 enum class EllipticCurve(val curve: String) {
+    @SerializedName(value = "secp256k1")
     Secp256k1("secp256k1"),
+    @SerializedName(value = "ed25519")
     Ed25519("ed25519");
 
     companion object {
@@ -318,6 +319,8 @@ class Card(
 
         /**
          * Whether the card requires issuer’s confirmation of activation.
+         * is "true" if the card requires activation,
+         * is 'false" if the card is activated or does not require activation
          */
         val isActivated: Boolean,
 
@@ -368,17 +371,13 @@ class Card(
  */
 class ReadCommand : Command<Card>() {
 
-    override fun performAfterCheck(session: CardSession, result: CompletionResult<Card>, callback: (result: CompletionResult<Card>) -> Unit): Boolean {
-        when (result) {
-            is CompletionResult.Failure -> {
-                if (result.error is TangemSdkError.InvalidParams) {
-                    callback(CompletionResult.Failure(TangemSdkError.Pin1Required()))
-                    return true
-                }
-                return false
-            }
-            else -> return false
+    override val performPreflightRead = false
+
+    override fun mapError(card: Card?, error: TangemError): TangemError {
+        if (error is TangemSdkError.InvalidParams) {
+            return TangemSdkError.Pin1Required()
         }
+        return error
     }
 
     override fun serialize(environment: SessionEnvironment): CommandApdu {
@@ -389,66 +388,12 @@ class ReadCommand : Command<Card>() {
          *  In order to obtain card’s data, [ReadCommand] should use the correct pin 1 value.
          *  The card will not respond if wrong pin 1 has been submitted.
          */
-        tlvBuilder.append(TlvTag.Pin, environment.pin1)
+        tlvBuilder.append(TlvTag.Pin, environment.pin1?.value)
         tlvBuilder.append(TlvTag.TerminalPublicKey, environment.terminalKeys?.publicKey)
-        return CommandApdu(
-                Instruction.Read, tlvBuilder.serialize(),
-                environment.encryptionMode, environment.encryptionKey
-        )
+        return CommandApdu(Instruction.Read, tlvBuilder.serialize())
     }
 
     override fun deserialize(environment: SessionEnvironment, apdu: ResponseApdu): Card {
-        val tlvData = apdu.getTlvData(environment.encryptionKey)
-                ?: throw TangemSdkError.DeserializeApduFailed()
-
-        val decoder = TlvDecoder(tlvData)
-
-        return Card(
-                cardId = decoder.decodeOptional(TlvTag.CardId) ?: "",
-                manufacturerName = decoder.decodeOptional(TlvTag.ManufactureId) ?: "",
-                status = decoder.decodeOptional(TlvTag.Status),
-
-                firmwareVersion = decoder.decodeOptional(TlvTag.Firmware),
-                cardPublicKey = decoder.decodeOptional(TlvTag.CardPublicKey),
-                settingsMask = decoder.decodeOptional(TlvTag.SettingsMask),
-                issuerPublicKey = decoder.decodeOptional(TlvTag.IssuerDataPublicKey),
-                curve = decoder.decodeOptional(TlvTag.CurveId),
-                maxSignatures = decoder.decodeOptional(TlvTag.MaxSignatures),
-                signingMethods = decoder.decodeOptional(TlvTag.SigningMethod),
-                pauseBeforePin2 = decoder.decodeOptional(TlvTag.PauseBeforePin2),
-                walletPublicKey = decoder.decodeOptional(TlvTag.WalletPublicKey),
-                walletRemainingSignatures = decoder.decodeOptional(TlvTag.RemainingSignatures),
-                walletSignedHashes = decoder.decodeOptional(TlvTag.SignedHashes),
-                health = decoder.decodeOptional(TlvTag.Health),
-                isActivated = decoder.decode(TlvTag.IsActivated),
-                activationSeed = decoder.decodeOptional(TlvTag.ActivationSeed),
-                paymentFlowVersion = decoder.decodeOptional(TlvTag.PaymentFlowVersion),
-                userCounter = decoder.decodeOptional(TlvTag.UserCounter),
-                userProtectedCounter = decoder.decodeOptional(TlvTag.UserProtectedCounter),
-                terminalIsLinked = decoder.decode(TlvTag.TerminalIsLinked),
-
-                cardData = deserializeCardData(tlvData)
-        )
-    }
-
-    private fun deserializeCardData(tlvData: List<Tlv>): CardData? {
-        val cardDataTlvs = tlvData.find { it.tag == TlvTag.CardData }?.let {
-            Tlv.deserialize(it.value)
-        }
-        if (cardDataTlvs.isNullOrEmpty()) return null
-
-        val decoder = TlvDecoder(cardDataTlvs)
-        return CardData(
-                batchId = decoder.decodeOptional(TlvTag.Batch),
-                manufactureDateTime = decoder.decodeOptional(TlvTag.ManufactureDateTime),
-                issuerName = decoder.decodeOptional(TlvTag.IssuerId),
-                blockchainName = decoder.decodeOptional(TlvTag.BlockchainId),
-                manufacturerSignature = decoder.decodeOptional(TlvTag.ManufacturerSignature),
-                productMask = decoder.decodeOptional(TlvTag.ProductMask),
-
-                tokenSymbol = decoder.decodeOptional(TlvTag.TokenSymbol),
-                tokenContractAddress = decoder.decodeOptional(TlvTag.TokenContractAddress),
-                tokenDecimal = decoder.decodeOptional(TlvTag.TokenDecimal)
-        )
+        return CardDeserializer.deserialize(apdu)
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tangem.common.extensions.StringExtensionsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-08-25T19:53:57" hostname="bamboo.local" time="0.001">
+  <properties/>
+  <testcase name="calculate SHA 256 for default PIN 1" classname="com.tangem.common.extensions.StringExtensionsTest" time="0.0"/>
+  <testcase name="calculate SHA 256 for default PIN 2" classname="com.tangem.common.extensions.StringExtensionsTest" time="0.0"/>
+  <testcase name="calculate SHA 256 for a sample PIN 1" classname="com.tangem.common.extensions.StringExtensionsTest" time="0.0"/>
+  <testcase name="calculate SHA 256 for a sample PIN 2" classname="com.tangem.common.extensions.StringExtensionsTest" time="0.0"/>
+  <testcase name="card ID hex to bytes" classname="com.tangem.common.extensions.StringExtensionsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,66 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.tangem.tangem_demo"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.NFC" />
+11-->[:tangem-sdk] /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-62
+11-->[:tangem-sdk] /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/build/intermediates/library_manifest/release/AndroidManifest.xml:11:22-59
+12    <uses-permission android:name="android.permission.VIBRATE" />
+12-->[:tangem-sdk] /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/build/intermediates/library_manifest/release/AndroidManifest.xml:12:5-66
+12-->[:tangem-sdk] /Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-sdk/build/intermediates/library_manifest/release/AndroidManifest.xml:12:22-63
+13
+14    <application
+14-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:5:5-20:19
+15        android:allowBackup="true"
+15-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:6:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.3.1] /Users/bamboo/.gradle/caches/transforms-2/files-2.1/81c70bf4540fccce3f9391195b38af80/core-1.3.1/AndroidManifest.xml:24:18-86
+17        android:icon="@mipmap/ic_launcher"
+17-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:7:9-43
+18        android:label="@string/app_name"
+18-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:8:9-41
+19        android:roundIcon="@mipmap/ic_launcher_round"
+19-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:9:9-54
+20        android:supportsRtl="true"
+20-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:10:9-35
+21        android:theme="@style/AppTheme" >
+21-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:11:9-40
+22        <activity
+22-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:12:9-19:20
+23            android:name="com.tangem.tangem_demo.DemoActivity"
+23-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:12:19-47
+24            android:screenOrientation="portrait" >
+24-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:13:13-49
+25            <intent-filter>
+25-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:14:13-18:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:15:17-69
+26-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:15:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:17:17-77
+28-->/Users/bamboo/CI/bamboo-home/xml-data/build-dir/AM-BCS-JOB1/repo/tangem-demo/src/main/AndroidManifest.xml:17:27-74
+29            </intent-filter>
+30        </activity>
+31
+32        <provider
+32-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bamboo/.gradle/caches/transforms-2/files-2.1/3b7c087b36775e9633a9b74290ffdb54/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+33            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+33-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bamboo/.gradle/caches/transforms-2/files-2.1/3b7c087b36775e9633a9b74290ffdb54/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+34            android:authorities="com.tangem.tangem_demo.lifecycle-process"
+34-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bamboo/.gradle/caches/transforms-2/files-2.1/3b7c087b36775e9633a9b74290ffdb54/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+35            android:exported="false"
+35-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bamboo/.gradle/caches/transforms-2/files-2.1/3b7c087b36775e9633a9b74290ffdb54/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+36            android:multiprocess="true" />
+36-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bamboo/.gradle/caches/transforms-2/files-2.1/3b7c087b36775e9633a9b74290ffdb54/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+37    </application>
+38
+39</manifest>

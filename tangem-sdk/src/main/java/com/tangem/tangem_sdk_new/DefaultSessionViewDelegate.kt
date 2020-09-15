@@ -1,20 +1,11 @@
 package com.tangem.tangem_sdk_new
 
-import android.animation.ObjectAnimator
 import android.app.Activity
-import android.view.HapticFeedbackConstants
-import android.view.View
-import android.view.animation.DecelerateInterpolator
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import android.view.ContextThemeWrapper
 import com.tangem.*
-import com.tangem.common.CompletionResult
-import com.tangem.tangem_sdk_new.extensions.hide
-import com.tangem.tangem_sdk_new.extensions.localizedDescription
-import com.tangem.tangem_sdk_new.extensions.show
+import com.tangem.commands.PinType
 import com.tangem.tangem_sdk_new.nfc.NfcReader
-import com.tangem.tangem_sdk_new.ui.TouchCardAnimation
-import kotlinx.android.synthetic.main.layout_touch_card.*
-import kotlinx.android.synthetic.main.nfc_bottom_sheet.*
+import com.tangem.tangem_sdk_new.ui.NfcSessionDialog
 
 /**
  * Default implementation of [SessionViewDelegate].
@@ -23,164 +14,86 @@ import kotlinx.android.synthetic.main.nfc_bottom_sheet.*
 class DefaultSessionViewDelegate(private val reader: NfcReader) : SessionViewDelegate {
 
     lateinit var activity: Activity
-    private var readingDialog: BottomSheetDialog? = null
+    private var readingDialog: NfcSessionDialog? = null
 
     init {
         setLogger()
     }
 
-    override fun onNfcSessionStarted(cardId: String?, message: Message?) {
-        reader.readingCancelled = false
-        postUI { showReadingDialog(activity, cardId, message) }
+    override fun onSessionStarted(cardId: String?, message: Message?) {
+        postUI {
+            if (readingDialog == null) createReadingDialog(activity)
+            readingDialog?.show(SessionViewDelegateState.Ready(cardId, message))
+        }
     }
 
-    private fun showReadingDialog(activity: Activity, cardId: String?, message: Message?) {
-        val dialogView = activity.layoutInflater.inflate(R.layout.nfc_bottom_sheet, null)
-        readingDialog = BottomSheetDialog(activity)
-        readingDialog?.setContentView(dialogView)
-        readingDialog?.dismissWithAnimation = true
-        readingDialog?.create()
-        readingDialog?.setOnShowListener {
-            readingDialog?.rippleBackgroundNfc?.startRippleAnimation()
-            val nfcDeviceAntenna = TouchCardAnimation(
-                    activity, readingDialog!!.ivHandCardHorizontal,
-                    readingDialog!!.ivHandCardVertical, readingDialog!!.llHand, readingDialog!!.llNfc)
-            nfcDeviceAntenna.init()
-            if (cardId != null) {
-                readingDialog?.tvCard?.visibility = View.VISIBLE
-                readingDialog?.tvCardId?.visibility = View.VISIBLE
-                readingDialog?.tvCardId?.text = cardId
-            }
-            if (message != null) {
-                if (message.body != null) readingDialog?.tvTaskText?.text = message.body
-                if (message.header != null) readingDialog?.tvTaskTitle?.text = message.header
+    private fun createReadingDialog(activity: Activity) {
+        readingDialog = NfcSessionDialog(ContextThemeWrapper(activity, R.style.CardSdkTheme)).apply {
+            dismissWithAnimation = true
+            create()
+            setOnCancelListener {
+                reader.stopSession(true)
+                createReadingDialog(activity)
             }
         }
-        readingDialog?.setOnCancelListener {
-            reader.readingCancelled = true
-            reader.closeSession()
-        }
-        readingDialog?.show()
     }
 
     override fun onSecurityDelay(ms: Int, totalDurationSeconds: Int) {
         postUI {
-            readingDialog?.lTouchCard?.hide()
-            readingDialog?.tvRemainingTime?.text = ms.div(100).toString()
-            readingDialog?.flSecurityDelay?.show()
-            readingDialog?.tvTaskTitle?.text = activity.getText(R.string.dialog_security_delay)
-            readingDialog?.tvTaskText?.text =
-                    activity.getText(R.string.dialog_security_delay_description)
-
-            performHapticFeedback()
-
-            if (readingDialog?.pbSecurityDelay?.max != totalDurationSeconds) {
-                readingDialog?.pbSecurityDelay?.max = totalDurationSeconds
-            }
-            readingDialog?.pbSecurityDelay?.progress = totalDurationSeconds - ms + 100
-
-            val animation = ObjectAnimator.ofInt(
-                    readingDialog?.pbSecurityDelay,
-                    "progress",
-                    totalDurationSeconds - ms,
-                    totalDurationSeconds - ms + 100)
-            animation.duration = 500
-            animation.interpolator = DecelerateInterpolator()
-            animation.start()
+            readingDialog?.show(SessionViewDelegateState.SecurityDelay(ms, totalDurationSeconds))
         }
     }
 
     override fun onDelay(total: Int, current: Int, step: Int) {
         postUI {
-            readingDialog?.lTouchCard?.hide()
-            readingDialog?.flSecurityDelay?.show()
-            readingDialog?.tvRemainingTime?.text = (((total - current) / step) + 1).toString()
-            readingDialog?.tvTaskTitle?.text = "Operation in process"
-            readingDialog?.tvTaskText?.text = "Please hold the card firmly until the operation is completed…"
-
-            performHapticFeedback()
-
-            if (readingDialog?.pbSecurityDelay?.max != total) {
-                readingDialog?.pbSecurityDelay?.max = total
-            }
-            readingDialog?.pbSecurityDelay?.progress = current
-
-            val animation = ObjectAnimator.ofInt(
-                    readingDialog?.pbSecurityDelay,
-                    "progress",
-                    current,
-                    current + step)
-            animation.duration = 300
-            animation.interpolator = DecelerateInterpolator()
-            animation.start()
+            readingDialog?.show(SessionViewDelegateState.Delay(total, current, step))
         }
     }
 
     override fun onTagLost() {
-        postUI {
-            readingDialog?.lTouchCard?.show()
-            readingDialog?.flSecurityDelay?.hide()
-            readingDialog?.tvTaskTitle?.text = activity.getText(R.string.dialog_ready_to_scan)
-            readingDialog?.tvTaskText?.text = activity.getText(R.string.dialog_scan_text)
-        }
+        postUI { readingDialog?.show(SessionViewDelegateState.TagLost) }
+
     }
 
-    override fun onNfcSessionCompleted(message: Message?) {
-        postUI {
-            readingDialog?.lTouchCard?.hide()
-            readingDialog?.flSecurityDelay?.hide()
-            readingDialog?.flCompletion?.show()
-            readingDialog?.ivCompletion?.setImageDrawable(activity.getDrawable(R.drawable.ic_done_135dp))
-            if (message != null) {
-                if (message.body != null) readingDialog?.tvTaskText?.text = message.body
-                if (message.header != null) readingDialog?.tvTaskTitle?.text = message.header
-            }
-            performHapticFeedback()
-        }
-        postUI(300) { readingDialog?.dismiss() }
+    override fun onTagConnected() {
+        postUI { readingDialog?.show(SessionViewDelegateState.TagConnected) }
     }
 
-    override fun onError(error: TangemSdkError) {
-        postUI {
-            readingDialog?.lTouchCard?.hide()
-            readingDialog?.flSecurityDelay?.hide()
-            readingDialog?.flCompletion?.hide()
-            readingDialog?.flError?.show()
-            readingDialog?.tvTaskTitle?.text = activity.getText(R.string.dialog_error)
-            readingDialog?.tvTaskText?.text = activity.getString(
-                    R.string.error_message,
-                    error.code.toString(), activity.getString(error.localizedDescription())
-            )
-            performHapticFeedback()
-        }
+    override fun onWrongCard(wrongValueType: WrongValueType) {
+        postUI { readingDialog?.show(SessionViewDelegateState.WrongCard(wrongValueType)) }
     }
 
-    override fun onPinRequested(callback: (result: CompletionResult<String>) -> Unit) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onSessionStopped(message: Message?) {
+        postUI { readingDialog?.show(SessionViewDelegateState.Success(message)) }
     }
 
-    private fun performHapticFeedback() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            readingDialog?.llHeader?.isHapticFeedbackEnabled = true
-            readingDialog?.llHeader?.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-        }
+    override fun onError(error: TangemError) {
+        postUI { readingDialog?.show(SessionViewDelegateState.Error(error)) }
+    }
+
+    override fun onPinRequested(pinType: PinType, callback: (pin: String) -> Unit) {
+        postUI { readingDialog?.show(SessionViewDelegateState.PinRequested(pinType, callback)) }
+    }
+
+    override fun onPinChangeRequested(pinType: PinType, callback: (pin: String) -> Unit) {
+        postUI { readingDialog?.show(SessionViewDelegateState.PinChangeRequested(pinType, callback)) }
     }
 
     private fun setLogger() {
         Log.setLogger(
-                object : LoggerInterface {
-                    override fun i(logTag: String, message: String) {
-                        android.util.Log.i(logTag, message)
-                    }
-
-                    override fun e(logTag: String, message: String) {
-                        android.util.Log.e(logTag, message)
-                    }
-
-                    override fun v(logTag: String, message: String) {
-                        android.util.Log.v(logTag, message)
-                    }
+            object : LoggerInterface {
+                override fun i(logTag: String, message: String) {
+                    android.util.Log.i(logTag, message)
                 }
+
+                override fun e(logTag: String, message: String) {
+                    android.util.Log.e(logTag, message)
+                }
+
+                override fun v(logTag: String, message: String) {
+                    android.util.Log.v(logTag, message)
+                }
+            }
         )
     }
 }
