@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tangem.common.apdu.CommandApduTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-08-25T19:53:57" hostname="bamboo.local" time="0.004">
+<testsuite name="com.tangem.common.apdu.CommandApduTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-10-19T16:00:59" hostname="bamboo.local" time="0.004">
   <properties/>
   <testcase name="simple READ command to bytes" classname="com.tangem.common.apdu.CommandApduTest" time="0.003"/>
   <testcase name="READ with terminal key to bytes" classname="com.tangem.common.apdu.CommandApduTest" time="0.001"/>

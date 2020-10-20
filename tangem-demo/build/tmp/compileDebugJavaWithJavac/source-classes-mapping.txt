@@ -1,0 +1,2 @@
+com/tangem/tangem_demo/BuildConfig.java
+ com.tangem.tangem_demo.BuildConfig

@@ -7,20 +7,20 @@ import com.tangem.commands.SettingsMaskBuilder
 internal fun CardConfig.createSettingsMask(): SettingsMask {
     val builder = SettingsMaskBuilder()
 
-    if (allowSwapPin) builder.add(Settings.AllowSwapPIN)
-    if (allowSwapPin2) builder.add(Settings.AllowSwapPIN2)
-    if (useCvc) builder.add(Settings.UseCVC)
+    if (allowSetPIN1) builder.add(Settings.AllowSetPIN1)
+    if (allowSetPIN2) builder.add(Settings.AllowSetPIN2)
+    if (useCvc) builder.add(Settings.UseCvc)
     if (isReusable) builder.add(Settings.IsReusable)
 
     if (useOneCommandAtTime) builder.add(Settings.UseOneCommandAtTime)
-    if (useNdef) builder.add(Settings.UseNdef)
-    if (useDynamicNdef) builder.add(Settings.UseDynamicNdef)
-    if (disablePrecomputedNdef) builder.add(Settings.DisablePrecomputedNdef)
+    if (useNDEF) builder.add(Settings.UseNDEF)
+    if (useDynamicNDEF) builder.add(Settings.UseDynamicNDEF)
+    if (disablePrecomputedNDEF) builder.add(Settings.DisablePrecomputedNDEF)
 
-    if (protocolAllowUnencrypted) builder.add(Settings.ProtocolAllowUnencrypted)
-    if (protocolAllowStaticEncryption) builder.add(Settings.ProtocolAllowStaticEncryption)
+    if (allowUnencrypted) builder.add(Settings.AllowUnencrypted)
+    if (allowFastEncryption) builder.add(Settings.AllowFastEncryption)
 
-    if (forbidDefaultPin) builder.add(Settings.ForbidDefaultPIN)
+    if (prohibitDefaultPIN1) builder.add(Settings.ProhibitDefaultPIN1)
 
     if (useActivation) builder.add(Settings.UseActivation)
 
@@ -29,20 +29,20 @@ internal fun CardConfig.createSettingsMask(): SettingsMask {
 
     if (protectIssuerDataAgainstReplay) builder.add(Settings.ProtectIssuerDataAgainstReplay)
 
-    if (forbidPurgeWallet) builder.add(Settings.ProhibitPurgeWallet)
+    if (prohibitPurgeWallet) builder.add(Settings.ProhibitPurgeWallet)
     if (allowSelectBlockchain) builder.add(Settings.AllowSelectBlockchain)
 
-    if (skipCheckPIN2andCVCIfValidatedByIssuer) builder.add(Settings.SkipCheckPin2andCvcIfValidatedByIssuer)
+    if (skipCheckPIN2CVCIfValidatedByIssuer) builder.add(Settings.SkipCheckPIN2CVCIfValidatedByIssuer)
     if (skipSecurityDelayIfValidatedByIssuer) builder.add(Settings.SkipSecurityDelayIfValidatedByIssuer)
 
     if (skipSecurityDelayIfValidatedByLinkedTerminal) builder.add(Settings.SkipSecurityDelayIfValidatedByLinkedTerminal)
-    if (restrictOverwriteIssuerDataEx) builder.add(Settings.RestrictOverwriteIssuerDataEx)
+    if (restrictOverwriteIssuerExtraData) builder.add(Settings.RestrictOverwriteIssuerExtraData)
 
     if (requireTerminalTxSignature) builder.add(Settings.RequireTermTxSignature)
 
     if (requireTerminalCertSignature) builder.add(Settings.RequireTermCertSignature)
 
-    if (checkPin3onCard) builder.add(Settings.CheckPIN3onCard)
+    if (checkPIN3OnCard) builder.add(Settings.CheckPIN3OnCard)
 
     return builder.build()
 }

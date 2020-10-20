@@ -11,6 +11,7 @@ import com.tangem.tasks.ScanTask
 interface TangemError {
     val code: Int
     var customMessage: String
+    val messageResId: Int?
 }
 
 /**
@@ -20,6 +21,7 @@ interface TangemError {
 sealed class TangemSdkError(final override val code: Int) : Exception(code.toString()), TangemError {
 
     override var customMessage: String = code.toString()
+    override val messageResId: Int? = null
 
     /**
      * This error is returned when Android  NFC reader loses a tag
@@ -169,6 +171,11 @@ sealed class TangemSdkError(final override val code: Int) : Exception(code.toStr
      * This error is returned when a [ScanTask] returns a [Card] without some of the essential fields.
      */
     class CardError : TangemSdkError(50007)
+
+    /**
+     * This error is returned when the [Command] requires a different firmware version than that of the card.
+     */
+    class FirmwareNotSupported : TangemSdkError(50007)
 
 }
 

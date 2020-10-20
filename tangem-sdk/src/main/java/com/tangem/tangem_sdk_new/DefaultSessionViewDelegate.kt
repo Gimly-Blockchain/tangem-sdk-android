@@ -76,7 +76,14 @@ class DefaultSessionViewDelegate(private val reader: NfcReader) : SessionViewDel
     }
 
     override fun onPinChangeRequested(pinType: PinType, callback: (pin: String) -> Unit) {
-        postUI { readingDialog?.show(SessionViewDelegateState.PinChangeRequested(pinType, callback)) }
+        postUI {
+            if (readingDialog == null) { createReadingDialog(activity) }
+            readingDialog?.show(SessionViewDelegateState.PinChangeRequested(pinType, callback))
+        }
+    }
+
+    override fun dismiss() {
+        postUI { readingDialog?.dismiss() }
     }
 
     private fun setLogger() {

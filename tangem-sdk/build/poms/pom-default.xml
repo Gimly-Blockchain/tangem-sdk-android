@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tangem</groupId>
   <artifactId>sdk</artifactId>
-  <version>1.44.0</version>
+  <version>1.72.0</version>
   <packaging>aar</packaging>
   <dependencies>
     <dependency>
@@ -15,8 +15,8 @@
     </dependency>
     <dependency>
       <groupId>com.tangem</groupId>
-      <artifactId>core</artifactId>
-      <version>1.44.0</version>
+      <artifactId>tangem-core</artifactId>
+      <version>1.72.0</version>
       <scope>compile</scope>
     </dependency>
     <dependency>

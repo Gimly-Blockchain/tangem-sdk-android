@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tangem.common.tlv.TlvDecoderTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2020-08-25T19:53:57" hostname="bamboo.local" time="0.071">
+<testsuite name="com.tangem.common.tlv.TlvDecoderTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2020-10-19T16:00:59" hostname="bamboo.local" time="0.072">
   <properties/>
   <testcase name="map EllipticCurve returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.003"/>
-  <testcase name="map Int returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
-  <testcase name="map ProductMask with raw value 1 returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
+  <testcase name="map Int returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
+  <testcase name="map ProductMask with raw value 1 returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
   <testcase name="map SettingsMask returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
-  <testcase name="map DateTime returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.002"/>
+  <testcase name="map DateTime returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.003"/>
   <testcase name="map SigningMethods set of methods returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
   <testcase name="map ByteArray returns correctly" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
   <testcase name="map ProductMask with raw value 5 returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
-  <testcase name="map when value is null throws MissingTagException" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.03"/>
+  <testcase name="map when value is null throws MissingTagException" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.031"/>
   <testcase name="map Enum with unknown code throws ConversionException error" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
   <testcase name="map SigningMethods single value returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
   <testcase name="map optional to wrong type throws WrongTypeException" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
   <testcase name="map CardStatus returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
   <testcase name="map to wrong type throws WrongTypeException" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
   <testcase name="map optional when no tag returns null" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
-  <testcase name="map Int with wrong value throws ConversionException" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
+  <testcase name="map Int with wrong value throws ConversionException" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
   <testcase name="map boolean missing flag returns false" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
-  <testcase name="map Hex returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.001"/>
+  <testcase name="map Hex returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
   <testcase name="map UTF8 returns correct value" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
   <testcase name="map optional when value is present" classname="com.tangem.common.tlv.TlvDecoderTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
