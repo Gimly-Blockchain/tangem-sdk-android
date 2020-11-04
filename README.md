@@ -3,14 +3,12 @@
 [![CircleCI](https://circleci.com/gh/Tangem/tangem-sdk-android.svg?style=shield)](https://circleci.com/gh/Tangem/tangem-sdk-android)
 
 # Welcome to Gimly + Tangem for Odyssey
-Gimly and Tangem are excited to be offering this technology to all Odyssey teams for free. If you have not done so yet, be sure to enlist for your DevKit here: https://www.gimly.io/blog/odyssey-tangem
+Gimly and Tangem are excited to be offering this technology to all Odyssey teams and Gimly partners for free. If you have not done so yet, be sure to enlist for your Developer or SSI trial kits here: https://www.gimly.io/store
 
 ## Resources:
 * This android SDK helps you implement tangem functionalities in your android or JVM applications.
 * iOS SDK available here: https://github.com/Gimly-Blockchain/tangem-sdk-iOS
-* Once you have enlisted to receive your free DevKit, you will get access to:
-    * a full technical manual explaining Tangem functions and all possible settings.
-    * android Tangem development kit application to program your developer cards.
+* Technical documentation and further resources available here: https://www.gimly.io/tangem-resources
 
 ## Technology and implementation partnering
 Gimly is an implementation partner and technology supplier of Tangem technology. Any enquiries relating to future implementations, further testing and deployment, and personalising and ordering programmable or production ready Tangem NFC cards, stickers, or tags may be directed at caspar@gimly.io.
